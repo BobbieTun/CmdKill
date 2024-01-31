@@ -67,10 +67,10 @@ HomeTab:TextBox("Hitbox Transparency", function(number)
 end)
 HomeTab:TextBox("New Hitbox ", function(number)
     local players = Players:GetPlayers()
-    if  Players[v].Character:FindFirstChild('HumanoidRootPart') then
+    if  Players.Character:FindFirstChild('HumanoidRootPart') then
         local sizeArg = tonumber(number)
         local Size = Vector3.new(sizeArg,sizeArg,sizeArg)
-        local Root = Players[v].Character:FindFirstChild('HumanoidRootPart')
+        local Root = Players.Character:FindFirstChild('HumanoidRootPart')
         if Root:IsA("BasePart") then
             if not number or sizeArg == 1 then
                 Root.Size = Vector3.new(2,1,1)
