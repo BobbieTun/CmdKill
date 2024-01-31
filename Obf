@@ -65,6 +65,25 @@ end)
 HomeTab:TextBox("Hitbox Transparency", function(number)
     getgenv().HitboxTransparency = number
 end)
+HomeTab:TextBox("New Hitbox ", function(number)
+    local players = GetPlayers()
+	for i,v in pairs(players) do
+		if  Players[v].Character:FindFirstChild('HumanoidRootPart') then
+			local sizeArg = tonumber(number)
+			local Size = Vector3.new(sizeArg,sizeArg,sizeArg)
+			local Root = Players[v].Character:FindFirstChild('HumanoidRootPart')
+			if Root:IsA("BasePart") then
+				if not number or sizeArg == 1 then
+					Root.Size = Vector3.new(2,1,1)
+					Root.Transparency = 0.4
+				else
+					Root.Size = Size
+					Root.Transparency = 0.4
+				end
+			end
+		end
+	end
+end)
 HomeTab:TextBox("Cooldown using tool + punch time", function(number)
     
         function cooldown()
